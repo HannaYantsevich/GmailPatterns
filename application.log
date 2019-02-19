@@ -1,0 +1,100 @@
+2019-02-19 11:55:46 INFO  BaseTest:29 - Start browser
+2019-02-19 11:55:48 INFO  BaseTest:34 - Navigate to home page
+2019-02-19 11:55:49 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 11:55:51 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 11:55:58 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src24168198721975
+2019-02-19 11:55:58 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 11:55:59 INFO  BaseTest:40 - Close browser
+2019-02-19 11:56:14 INFO  BaseTest:29 - Start browser
+2019-02-19 11:56:15 INFO  BaseTest:34 - Navigate to home page
+2019-02-19 11:56:16 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 11:56:19 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 11:56:26 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src24195829932045
+2019-02-19 11:56:26 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 11:56:26 INFO  BaseTest:53 - Send email
+2019-02-19 11:56:28 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 11:56:28 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 11:56:28 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 11:56:30 INFO  BaseTest:40 - Close browser
+2019-02-19 12:02:27 INFO  BaseTest:29 - Start browser
+2019-02-19 12:02:29 INFO  BaseTest:34 - Navigate to home page
+2019-02-19 12:02:30 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:02:32 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:02:54 INFO  BaseTest:40 - Close browser
+2019-02-19 12:03:02 INFO  BaseTest:29 - Start browser
+2019-02-19 12:03:03 INFO  BaseTest:34 - Navigate to home page
+2019-02-19 12:03:04 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:03:06 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:03:13 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src24603706343710
+2019-02-19 12:03:13 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 12:03:14 INFO  BaseTest:53 - Send email
+2019-02-19 12:03:15 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 12:03:15 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 12:03:16 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 12:03:17 INFO  BaseTest:40 - Close browser
+2019-02-19 12:10:49 INFO  BaseTest:30 - Start browser
+2019-02-19 12:11:03 INFO  BaseTest:30 - Start browser
+2019-02-19 12:11:05 INFO  BaseTest:36 - Navigate to home page
+2019-02-19 12:11:06 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:11:08 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:11:29 INFO  BaseTest:42 - Close browser
+2019-02-19 12:11:52 INFO  BaseTest:30 - Start browser
+2019-02-19 12:11:54 INFO  BaseTest:36 - Navigate to home page
+2019-02-19 12:11:55 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:11:57 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:12:04 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src25134266911740
+2019-02-19 12:12:04 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 12:12:05 INFO  BaseTest:53 - Send email
+2019-02-19 12:12:06 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 12:12:07 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 12:12:07 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 12:12:08 INFO  BaseTest:42 - Close browser
+2019-02-19 12:12:21 INFO  BaseTest:30 - Start browser
+2019-02-19 12:12:22 INFO  BaseTest:36 - Navigate to home page
+2019-02-19 12:12:23 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:12:25 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:12:33 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src25162837489943
+2019-02-19 12:12:33 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 12:12:33 INFO  BaseTest:53 - Send email
+2019-02-19 12:12:34 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 12:12:35 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 12:12:35 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 12:12:37 INFO  BaseTest:42 - Close browser
+2019-02-19 12:14:06 INFO  BaseTest:30 - Start browser
+2019-02-19 12:14:07 INFO  BaseTest:36 - Navigate to home page
+2019-02-19 12:14:08 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:14:10 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:14:17 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src25267096045107
+2019-02-19 12:14:17 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 12:14:18 INFO  BaseTest:53 - Send email
+2019-02-19 12:14:18 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 12:14:19 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 12:14:19 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 12:14:20 INFO  BaseTest:42 - Close browser
+2019-02-19 12:15:06 INFO  BaseTest:30 - Start browser
+2019-02-19 12:15:07 INFO  BaseTest:38 - Navigate to home page
+2019-02-19 12:15:08 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:15:11 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:15:32 INFO  BaseTest:44 - Close browser
+2019-02-19 12:15:49 INFO  BaseTest:30 - Start browser
+2019-02-19 12:15:51 INFO  BaseTest:38 - Navigate to home page
+2019-02-19 12:15:51 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:15:54 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:16:01 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src25371024184951
+2019-02-19 12:16:01 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 12:16:03 INFO  BaseTest:53 - Send email
+2019-02-19 12:16:03 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 12:16:04 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 12:16:04 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 12:16:05 INFO  BaseTest:44 - Close browser
+2019-02-19 12:22:59 INFO  BaseTest:30 - Start browser
+2019-02-19 12:23:00 INFO  BaseTest:38 - Navigate to home page
+2019-02-19 12:23:01 INFO  BaseTest:27 - Login into user`s account
+2019-02-19 12:23:04 INFO  BaseTest:36 - Create email and save it in drafts
+2019-02-19 12:23:15 INFO  AbstractedPage:91 - Saved screenshot:Screenshots/src25804812402628
+2019-02-19 12:23:15 INFO  BaseTest:49 - Verify that email is saved in drafts
+2019-02-19 12:23:15 INFO  BaseTest:53 - Send email
+2019-02-19 12:23:15 INFO  BaseTest:57 - Verify that email is appeared in sent folder
+2019-02-19 12:23:16 INFO  BaseTest:60 - Verify that email disappeared from Drafts folder
+2019-02-19 12:23:16 INFO  BaseTest:65 - Log out from user`s account
+2019-02-19 12:23:18 INFO  BaseTest:44 - Close browser
