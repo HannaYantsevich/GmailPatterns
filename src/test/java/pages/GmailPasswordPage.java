@@ -1,6 +1,7 @@
 package pages;
 
 import bo.User;
+import decorator.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,15 +17,15 @@ public class GmailPasswordPage extends AbstractedPage {
 
     @FindBy(xpath = "//*[@id='passwordNext']")
     private WebElement nextButton;
-
+    Browser browser = new Browser(driver);
     public GmailPasswordPage fillGmailPasswordInput(User user) {
-        waitForElementVisible(By.xpath("//div[@class='Xb9hP']/input[@type='password']"));
+        browser.waitForElementVisible(By.xpath("//div[@class='Xb9hP']/input[@type='password']"));
         passwordInput.sendKeys(user.getPassword());
         return new GmailPasswordPage(driver);
     }
 
     public GmailMainPage pressPasswordNextButton() {
-        waitForElementAndClick(driver, nextButton);
+        browser.waitForElementAndClick(driver, nextButton);
         return new GmailMainPage(driver);
     }
 }

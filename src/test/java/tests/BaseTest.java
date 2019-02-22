@@ -1,6 +1,9 @@
 package tests;
 
 
+import decorator.Browser;
+import factory.ChromeDriverCreator;
+import factory.WebDriverCreator;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -21,28 +24,24 @@ public class BaseTest {
 
 
     protected WebDriver driver;
+    protected Browser browser;
     private Logger log = Logger.getLogger(BaseTest.class);
 
     @BeforeClass
     public void startBrowserAndOpenBaseURL() {
-        WebDriverManager.chromedriver().setup();
-
         log.info("Start browser");
-        driver = new ChromeDriver();
-        //this.driver = WebDriverSingleton.getWebDriverInstance();
-        //WebDriverCreator creator = new ChromeDriverCreator();
-        //driver = creator.createWebDriver();
-        driver.manage().deleteAllCookies();
-        //driver.manage().window().maximize();
+        WebDriverCreator creator = new ChromeDriverCreator();
+        driver = creator.createWebDriver();
+        browser = new Browser(driver);
 
+        browser.manage().deleteAllCookies();
         log.info("Navigate to home page");
-        driver.get(BASE_URL);
+        browser.get(BASE_URL);
     }
 
     @AfterClass
     public void closeBrowser() {
         log.info("Close browser");
-        driver.quit();
-        //WebDriverSingleton.kill();
+        browser.quit();
     }
 }

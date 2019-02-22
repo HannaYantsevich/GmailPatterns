@@ -1,6 +1,7 @@
 package singleton;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -9,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class WebDriverSingleton {
     private static WebDriver instance;
 
+    private static Logger log = Logger.getLogger(WebDriverSingleton.class);
     private WebDriverSingleton() {
 
     }
@@ -33,7 +35,7 @@ public class WebDriverSingleton {
             try {
                 instance.quit();
             }catch (Exception e){
-                System.out.println("Cannot kill browser");
+                log.error("Cannot kill browser"  +e.getMessage());
             }finally {
                 instance=null;
             }

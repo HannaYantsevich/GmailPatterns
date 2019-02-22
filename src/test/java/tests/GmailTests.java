@@ -15,15 +15,7 @@ public class GmailTests extends BaseTest {
     @Test
     public void SendEmailFromDraftsTest() {
 
-/*
-        try {
-            driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), DesiredCapabilities.chrome());
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
-*/
+
         log.info("Login into user`s account");
         GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
         gmailLoginPage.pressSigninButton()
@@ -42,8 +34,8 @@ public class GmailTests extends BaseTest {
                 .fillSubjectInput(EMAIL_SUBJECT)
                 .fillBodyInput(EMAIL_BODY)
                 .saveAndCloseEmail()
-                .clickOnDraftsLink()
-                .takeScreenshot();
+                .clickOnDraftsLink();
+         browser.takeScreenshot();
 
 
         log.info("Verify that email is saved in drafts");
