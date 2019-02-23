@@ -3,13 +3,12 @@ package pages;
 import bo.User;
 import decorator.Browser;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class GmailPasswordPage extends AbstractedPage {
-    public GmailPasswordPage(WebDriver driver) {
-        super(driver);
+    public GmailPasswordPage(Browser browser) {
+        super(browser);
     }
 
     @FindBy(xpath = "//div[@class='Xb9hP']/input[@type='password']")
@@ -17,15 +16,15 @@ public class GmailPasswordPage extends AbstractedPage {
 
     @FindBy(xpath = "//*[@id='passwordNext']")
     private WebElement nextButton;
-    Browser browser = new Browser(driver);
+
     public GmailPasswordPage fillGmailPasswordInput(User user) {
         browser.waitForElementVisible(By.xpath("//div[@class='Xb9hP']/input[@type='password']"));
         passwordInput.sendKeys(user.getPassword());
-        return new GmailPasswordPage(driver);
+        return new GmailPasswordPage(browser);
     }
 
     public GmailMainPage pressPasswordNextButton() {
-        browser.waitForElementAndClick(driver, nextButton);
-        return new GmailMainPage(driver);
+        browser.waitForElementAndClick(nextButton);
+        return new GmailMainPage(browser);
     }
 }

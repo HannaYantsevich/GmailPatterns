@@ -1,19 +1,17 @@
 package pages;
 
-
 import bo.User;
 import decorator.Browser;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class GmailLoginPage extends AbstractedPage {
     private Logger log = Logger.getLogger(GmailLoginPage.class);
 
-    public GmailLoginPage(WebDriver driver) {
-        super(driver);
+    public GmailLoginPage(Browser browser) {
+        super(browser);
     }
 
     @FindBy(xpath = "//div[@class='gmail-nav__nav-links-wrap']/a[@class ='gmail-nav__nav-link gmail-nav__nav-link__sign-in']")
@@ -25,23 +23,22 @@ public class GmailLoginPage extends AbstractedPage {
     @FindBy(id = "identifierNext")
     private WebElement nextButton;
 
-    Browser browser = new Browser(driver);
 
     public GmailLoginPage pressSigninButton() {
-        browser.highlightElement(driver, signInButton);
+        browser.highlightElement(signInButton);
         signInButton.click();
-        return new GmailLoginPage(driver);
+        return new GmailLoginPage(browser);
     }
 
     public GmailLoginPage fillEmailIInput(User user) {
         browser.waitForElementVisible(emailInput);
         emailInput.sendKeys(user.getLogin());
-        return new GmailLoginPage(driver);
+        return new GmailLoginPage(browser);
     }
 
     public GmailPasswordPage pressNextButton() {
         browser.waitForElementVisible(By.id("identifierNext"));
         nextButton.click();
-        return new GmailPasswordPage(driver);
+        return new GmailPasswordPage(browser);
     }
 }

@@ -3,7 +3,6 @@ package decorator;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
@@ -16,9 +15,8 @@ import java.util.Set;
 public class Browser implements WebDriver {
 
     protected WebDriver driver;
-    private WebElement element;
     protected JavascriptExecutor jsExecutor;
-    private static final int WAIT_FOR_ELEMENT_SECONDS = 15;
+    private static final int WAIT_FOR_ELEMENT_SECONDS = 20;
     private static final String SCREENSHOTS_NAME_TPL = "Screenshots/src";
     public static org.apache.log4j.Logger log = Logger.getLogger(Browser.class);
 
@@ -95,11 +93,11 @@ public class Browser implements WebDriver {
         return jsExecutor.executeAsyncScript(s, objects);
     }
 
-    public void highlightElement(WebDriver driver, WebElement element) {
+    public void highlightElement(WebElement element) {
         jsExecutor.executeScript("arguments[0].style.border='3px solid green'", element);
     }
 
-    public void unhighlightElement(WebDriver driver, WebElement element) {
+    public void unhighlightElement(WebElement element) {
         jsExecutor.executeScript("arguments[0].style.border='0px'", element);
     }
 
@@ -128,16 +126,16 @@ public class Browser implements WebDriver {
     }
 
 
-    public void waitForElementAndClick(WebDriver driver, WebElement element) {
-        new WebDriverWait(driver, WAIT_FOR_ELEMENT_SECONDS).ignoring(StaleElementReferenceException.class, WebDriverException.class)
+    public void waitForElementAndClick(WebElement element) {
+        new WebDriverWait(this, WAIT_FOR_ELEMENT_SECONDS).ignoring(StaleElementReferenceException.class, WebDriverException.class)
                 .until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 
-    public void waitForElementAndClick(WebDriver driver, By by) {
-        new WebDriverWait(driver, WAIT_FOR_ELEMENT_SECONDS).ignoring(StaleElementReferenceException.class, WebDriverException.class)
+    public void waitForElementAndClick(Browser browser, By by) {
+        WebElement until = new WebDriverWait(this, WAIT_FOR_ELEMENT_SECONDS).ignoring(StaleElementReferenceException.class, WebDriverException.class)
                 .until(ExpectedConditions.elementToBeClickable(by));
-        driver.findElement(by).click();
+        this.findElement(by).click();
     }
 
     public void clickOnElementByJS(WebElement element) {

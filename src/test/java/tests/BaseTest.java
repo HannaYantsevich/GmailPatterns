@@ -4,13 +4,10 @@ package tests;
 import decorator.Browser;
 import factory.ChromeDriverCreator;
 import factory.WebDriverCreator;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import singleton.WebDriverSingleton;
 
 
 import static utils.RandomString.getRandomString;
@@ -23,7 +20,6 @@ public class BaseTest {
     public static final String EMAIL_BODY = "Hello, World!";
 
 
-    protected WebDriver driver;
     protected Browser browser;
     private Logger log = Logger.getLogger(BaseTest.class);
 
@@ -31,7 +27,7 @@ public class BaseTest {
     public void startBrowserAndOpenBaseURL() {
         log.info("Start browser");
         WebDriverCreator creator = new ChromeDriverCreator();
-        driver = creator.createWebDriver();
+        WebDriver driver = creator.createWebDriver();
         browser = new Browser(driver);
 
         browser.manage().deleteAllCookies();

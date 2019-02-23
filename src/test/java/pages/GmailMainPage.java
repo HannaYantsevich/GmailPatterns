@@ -1,9 +1,9 @@
 package pages;
 
+import bo.User;
 import decorator.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -52,115 +52,110 @@ public class GmailMainPage extends AbstractedPage {
     @FindBy(xpath = "//input[@placeholder = 'Search mail']")
     private WebElement searchField;
 
-    Browser browser = new Browser(driver);
-
-    public GmailMainPage(WebDriver driver) {
-        super(driver);
+    public GmailMainPage(Browser browser) {
+        super(browser);
     }
 
     public GmailMainPage enterSearchFieldSpace() {
         browser.waitForElementVisible(searchField);
-        browser.highlightElement(driver, searchField);
+        browser.highlightElement(searchField);
         browser.takeScreenshot();
-        new Actions(driver).sendKeys(Keys.SPACE).build().perform();
-        browser.unhighlightElement(driver, searchField);
-        return new GmailMainPage(driver);
+        new Actions(browser).sendKeys(Keys.SPACE).build().perform();
+        browser.unhighlightElement(searchField);
+        return new GmailMainPage(browser);
     }
 
     public void doubleClickMoreButton() {
         browser.waitForElementVisible(expandMoreButton);
-        browser.highlightElement(driver, expandMoreButton);
-        new Actions(driver).doubleClick().build().perform();
-        browser.unhighlightElement(driver, expandMoreButton);
-    }
-
-    public void scrollToTheBottom() {
-        browser.scrollUsingJS();
-        new Actions(driver).doubleClick().build().perform();
+        browser.highlightElement(expandMoreButton);
+        new Actions(browser).doubleClick().build().perform();
+        browser.unhighlightElement(expandMoreButton);
     }
 
     public void scrollToTheTermsElement() {
         browser.waitForElementVisible(termsEndConditionsLink);
         browser.scrollUsingJJSotTheElement(termsEndConditionsLink);
-        new Actions(driver).doubleClick().build().perform();
+        new Actions(browser).doubleClick().build().perform();
     }
 
     public GmailMainPage pressComposeButton() {
         browser.waitForElementVisible(composeButton);
-        browser.highlightElement(driver, composeButton);
+        browser.highlightElement(composeButton);
         composeButton.click();
-        browser.unhighlightElement(driver, composeButton);
-        return new GmailMainPage(driver);
+        browser.unhighlightElement(composeButton);
+        return new GmailMainPage(browser);
     }
 
     public GmailMainPage fillRecipentInput(String recipientQuery) {
         browser.waitForElementVisible(recipientInput);
-        browser.highlightElement(driver, recipientInput);
+        browser.highlightElement(recipientInput);
         recipientInput.sendKeys(recipientQuery);
-        browser.unhighlightElement(driver, recipientInput);
-        return new GmailMainPage(driver);
+        browser.unhighlightElement(recipientInput);
+        return new GmailMainPage(browser);
     }
 
-    public GmailMainPage fillSubjectInput(String subjectQuery) {
+    public GmailMainPage fillSubjectInput(User user) {
         browser.waitForElementVisible(subjectInput);
-        browser.highlightElement(driver, subjectInput);
-        subjectInput.sendKeys(subjectQuery);
-        browser.unhighlightElement(driver, subjectInput);
+        browser.highlightElement(subjectInput);
+        subjectInput.sendKeys(user.setSubjectInput());
+        browser.unhighlightElement(subjectInput);
         return this;
     }
 
-    public GmailMainPage fillBodyInput(String bodyQuery) {
+    public GmailMainPage fillBodyInput(User user) {
         browser.waitForElementVisible(bodyInput);
-        bodyInput.sendKeys(bodyQuery);
+        bodyInput.sendKeys(user.setBodyInput());
         return this;
     }
 
     public GmailMainPage saveAndCloseEmail() {
-        browser.waitForElementAndClick(driver, saveAndClose);
+        browser.waitForElementAndClick(saveAndClose);
         return this;
     }
 
     public GmailMainPage clickOnDraftsLink() {
-        browser.waitForElementAndClick(driver, draftsLink);
+        browser.waitForElementAndClick(draftsLink);
         return this;
     }
 
     public boolean isEmailAppearedInDrafts(String emailBody) {
         browser.waitForElementVisible(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody)));
-        return driver.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody))).isDisplayed();
+        return browser.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody))).isDisplayed();
     }
 
 
     public GmailMainPage clickOnDraftEmail(String emailSubject) {
-        browser.waitForElementAndClick(driver, By.xpath(String.format("./descendant::span[contains(text(), '%s')][2]", emailSubject)));
+        browser.waitForElementAndClick(browser, By.xpath(String.format("./descendant::span[contains(text(), '%s')][2]", emailSubject)));
         return this;
     }
 
     public GmailMainPage sendEmail() {
-        browser.waitForElementAndClick(driver, sendButton);
+        browser.waitForElementAndClick(sendButton);
         return this;
     }
 
     public GmailMainPage clickOnSentLink() {
-        browser.waitForElementAndClick(driver, sentLink);
+        browser.waitForElementAndClick(sentLink);
         return this;
     }
 
     public boolean isEmailAppearedInSentFolder(String emailBody) {
         browser.waitForElementVisible(By.xpath(String.format("/descendant::span[contains(text(), '%s')][5]", emailBody)));
-        return driver.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][5]", emailBody))).isDisplayed();
+        return browser.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][5]", emailBody))).isDisplayed();
     }
 
     public boolean isEmailDisappearedFromDrafts(String emailBody) {
-        return driver.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody))).isDisplayed();
+        return browser.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody))).isDisplayed();
     }
 
+
+
     public GmailMainPage clickOnImageButton() {
-        browser.waitForElementAndClick(driver, imageButton);
+        browser.waitForElementAndClick(imageButton);
         return this;
     }
 
     public void clickOnSignOutButton() {
-        browser.waitForElementAndClick(driver, signOutButton);
+        browser.waitForElementAndClick(signOutButton);
     }
 }

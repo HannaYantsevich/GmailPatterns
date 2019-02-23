@@ -11,13 +11,12 @@ import org.apache.log4j.Logger;
 public class GmailTests extends BaseTest {
     public Logger log = Logger.getLogger(BaseTest.class);
 
-
     @Test
     public void SendEmailFromDraftsTest() {
 
 
         log.info("Login into user`s account");
-        GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
+        GmailLoginPage gmailLoginPage = new GmailLoginPage(browser);
         gmailLoginPage.pressSigninButton()
                 .fillEmailIInput(new User());
 
@@ -31,16 +30,16 @@ public class GmailTests extends BaseTest {
         gmailMainPage.doubleClickMoreButton();
         gmailMainPage.pressComposeButton()
                 .fillRecipentInput(RECIPIENT_EMAIL)
-                .fillSubjectInput(EMAIL_SUBJECT)
-                .fillBodyInput(EMAIL_BODY)
+                .fillSubjectInput(new User())
+                .fillBodyInput(new User())
                 .saveAndCloseEmail()
                 .clickOnDraftsLink();
-         browser.takeScreenshot();
+        browser.takeScreenshot();
 
 
         log.info("Verify that email is saved in drafts");
         gmailMainPage.clickOnDraftEmail(EMAIL_SUBJECT);
-        Assert.assertTrue(gmailMainPage.isEmailAppearedInDrafts(EMAIL_BODY));
+        Assert.assertTrue(gmailMainPage.isEmailAppearedInDrafts(EMAIL_SUBJECT));
 
         log.info("Send email");
         gmailMainPage.sendEmail()
@@ -56,7 +55,6 @@ public class GmailTests extends BaseTest {
 
         log.info("Log out from user`s account");
         gmailMainPage.enterSearchFieldSpace() //checking actions using keyboard
-
                 .clickOnImageButton()
                 .clickOnSignOutButton();
     }
