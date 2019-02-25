@@ -61,7 +61,6 @@ public class Browser implements WebDriver {
     }
 
     public void quit() {
-        System.out.println("Browser will be closed now...");
         driver.quit();
     }
 

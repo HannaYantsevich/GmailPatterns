@@ -8,7 +8,15 @@ import pages.GmailMainPage;
 import pages.GmailPasswordPage;
 import org.apache.log4j.Logger;
 
+import static utils.RandomString.getRandomString;
+
 public class GmailTests extends BaseTest {
+    private static final String LOGIN = "HannaTest34@gmail.com";
+    private static final String PASSWORD = "PasswordPassword";
+    public static final String EMAIL_SUBJECT = getRandomString(10);
+    public static final String EMAIL_BODY = "Hello, World!";
+
+
     public Logger log = Logger.getLogger(BaseTest.class);
 
     @Test
@@ -16,12 +24,14 @@ public class GmailTests extends BaseTest {
 
 
         log.info("Login into user`s account");
+        User testUser = new User.UserBuilder(LOGIN, PASSWORD).withEmailSubject(EMAIL_SUBJECT).withEmailBody(EMAIL_BODY).build();
+
         GmailLoginPage gmailLoginPage = new GmailLoginPage(browser);
         gmailLoginPage.pressSigninButton()
-                .fillEmailIInput(new User());
+                .fillEmailIInput(testUser);
 
         GmailPasswordPage gmailPasswordPage = gmailLoginPage.pressNextButton();
-        gmailPasswordPage.fillGmailPasswordInput(new User());
+        gmailPasswordPage.fillGmailPasswordInput(testUser);
         GmailMainPage gmailMainPage = gmailPasswordPage.pressPasswordNextButton();
 
         log.info("Create email and save it in drafts");
@@ -30,8 +40,8 @@ public class GmailTests extends BaseTest {
         gmailMainPage.doubleClickMoreButton();
         gmailMainPage.pressComposeButton()
                 .fillRecipentInput(RECIPIENT_EMAIL)
-                .fillSubjectInput(new User())
-                .fillBodyInput(new User())
+                .fillSubjectInput(testUser)
+                .fillBodyInput(testUser)
                 .saveAndCloseEmail()
                 .clickOnDraftsLink();
         browser.takeScreenshot();
