@@ -15,9 +15,7 @@ import static utils.RandomString.getRandomString;
 
 public class BaseTest {
     public static final String BASE_URL = "https://www.google.com/intl/ru/gmail/about/#";
-    public static final String RECIPIENT_EMAIL = "h.yantsevich@gmail.com";
-    public static final String EMAIL_SUBJECT = getRandomString(10);
-    public static final String EMAIL_BODY = "Hello, World!";
+
 
 
     protected Browser browser;

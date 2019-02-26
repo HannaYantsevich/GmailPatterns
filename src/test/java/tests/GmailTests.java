@@ -14,8 +14,8 @@ public class GmailTests extends BaseTest {
     private static final String LOGIN = "HannaTest34@gmail.com";
     private static final String PASSWORD = "PasswordPassword";
     public static final String EMAIL_SUBJECT = getRandomString(10);
-    public static final String EMAIL_BODY = "Hello, World!";
-
+    public static final String EMAIL_BODY = getRandomString(20);
+    public static final String RECIPIENT_EMAIL = "h.yantsevich@gmail.com";
 
     public Logger log = Logger.getLogger(BaseTest.class);
 
@@ -48,18 +48,18 @@ public class GmailTests extends BaseTest {
 
 
         log.info("Verify that email is saved in drafts");
-        gmailMainPage.clickOnDraftEmail(EMAIL_SUBJECT);
-        Assert.assertTrue(gmailMainPage.isEmailAppearedInDrafts(EMAIL_SUBJECT));
+        gmailMainPage.clickOnDraftEmail(EMAIL_SUBJECT, EMAIL_BODY);
+        Assert.assertTrue(gmailMainPage.isEmailAppearedInDrafts(EMAIL_SUBJECT, EMAIL_BODY));
 
         log.info("Send email");
         gmailMainPage.sendEmail()
                 .clickOnSentLink();
 
         log.info("Verify that email is appeared in sent folder");
-        Assert.assertTrue(gmailMainPage.isEmailAppearedInSentFolder(EMAIL_BODY));
+        Assert.assertTrue(gmailMainPage.isEmailAppearedInSentFolder(EMAIL_SUBJECT, EMAIL_BODY));
 
         log.info("Verify that email disappeared from Drafts folder");
-        Assert.assertFalse(gmailMainPage.isEmailDisappearedFromDrafts(EMAIL_BODY));
+        Assert.assertFalse(gmailMainPage.isEmailDisappearedFromDrafts(EMAIL_SUBJECT, EMAIL_BODY));
         gmailMainPage.clickOnDraftsLink();
 
 

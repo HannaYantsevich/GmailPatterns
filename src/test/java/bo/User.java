@@ -23,11 +23,11 @@ public class User {
         return password;
     }
 
-    public String setSubjectInput() {
+    public String getSubjectInput() {
         return emailSubject;
     }
 
-    public String setBodyInput() {
+    public String getBodyInput() {
         return emailBody;
     }
 

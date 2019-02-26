@@ -97,14 +97,14 @@ public class GmailMainPage extends AbstractedPage {
     public GmailMainPage fillSubjectInput(User user) {
         browser.waitForElementVisible(subjectInput);
         browser.highlightElement(subjectInput);
-        subjectInput.sendKeys(user.setSubjectInput());
+        subjectInput.sendKeys(user.getSubjectInput());
         browser.unhighlightElement(subjectInput);
         return this;
     }
 
     public GmailMainPage fillBodyInput(User user) {
         browser.waitForElementVisible(bodyInput);
-        bodyInput.sendKeys(user.setBodyInput());
+        bodyInput.sendKeys(user.getBodyInput());
         return this;
     }
 
@@ -118,14 +118,17 @@ public class GmailMainPage extends AbstractedPage {
         return this;
     }
 
-    public boolean isEmailAppearedInDrafts(String emailBody) {
-        browser.waitForElementVisible(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody)));
-        return browser.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody))).isDisplayed();
+    public boolean isEmailAppearedInDrafts(String emailSubject, String emailBody) {
+        browser.waitForElementVisible(By.xpath(String.format(
+                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody)));
+        return browser.findElement(By.xpath(String.format(
+                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%s')]/following::span[contains(text(), '%2s')]", emailSubject,emailBody))).isDisplayed();
     }
 
 
-    public GmailMainPage clickOnDraftEmail(String emailSubject) {
-        browser.waitForElementAndClick(browser, By.xpath(String.format("./descendant::span[contains(text(), '%s')][2]", emailSubject)));
+    public GmailMainPage clickOnDraftEmail(String emailSubject, String emailBody) {
+        browser.waitForElementAndClick(browser, By.xpath(String.format(
+                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%1s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody)));
         return this;
     }
 
@@ -139,13 +142,15 @@ public class GmailMainPage extends AbstractedPage {
         return this;
     }
 
-    public boolean isEmailAppearedInSentFolder(String emailBody) {
-        browser.waitForElementVisible(By.xpath(String.format("/descendant::span[contains(text(), '%s')][5]", emailBody)));
-        return browser.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][5]", emailBody))).isDisplayed();
+    public boolean isEmailAppearedInSentFolder(String emailSubject, String emailBody) {
+        browser.waitForElementVisible(By.xpath(String.format(
+                "//span[contains(text(), 'h.yantsevich')]/following::span[contains(text(), '%1s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody)));
+        return browser.findElement(By.xpath(String.format("//span[contains(text(), 'h.yantsevich')]/following::span[contains(text(), '%1s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody))).isDisplayed();
     }
 
-    public boolean isEmailDisappearedFromDrafts(String emailBody) {
-        return browser.findElement(By.xpath(String.format("/descendant::span[contains(text(), '%s')][1]", emailBody))).isDisplayed();
+    public boolean isEmailDisappearedFromDrafts(String emailSubject, String emailBody) {
+        return browser.findElement(By.xpath(String.format(
+                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%1s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody))).isDisplayed();
     }
 
 
