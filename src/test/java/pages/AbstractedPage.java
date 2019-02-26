@@ -1,7 +1,6 @@
 package pages;
 
 import decorator.Browser;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 
 

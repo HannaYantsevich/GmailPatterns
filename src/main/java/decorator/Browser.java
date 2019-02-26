@@ -153,8 +153,15 @@ public class Browser implements WebDriver {
     }
 
     public void waitForElementVisible(By locator) {
-        new WebDriverWait(driver, WAIT_FOR_ELEMENT_SECONDS)
+        new WebDriverWait(driver, WAIT_FOR_ELEMENT_SECONDS).ignoring(StaleElementReferenceException.class, WebDriverException.class)
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
+
+    public void waitForElementInvisible(By locator) {
+        new WebDriverWait(driver, WAIT_FOR_ELEMENT_SECONDS).ignoring(StaleElementReferenceException.class, WebDriverException.class)
+                .until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+
 }
 

@@ -10,12 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 
-import static utils.RandomString.getRandomString;
-
-
 public class BaseTest {
     public static final String BASE_URL = "https://www.google.com/intl/ru/gmail/about/#";
-
 
 
     protected Browser browser;

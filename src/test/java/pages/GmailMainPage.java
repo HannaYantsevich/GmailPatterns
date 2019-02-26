@@ -122,7 +122,7 @@ public class GmailMainPage extends AbstractedPage {
         browser.waitForElementVisible(By.xpath(String.format(
                 "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody)));
         return browser.findElement(By.xpath(String.format(
-                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%s')]/following::span[contains(text(), '%2s')]", emailSubject,emailBody))).isDisplayed();
+                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody))).isDisplayed();
     }
 
 
@@ -149,10 +149,11 @@ public class GmailMainPage extends AbstractedPage {
     }
 
     public boolean isEmailDisappearedFromDrafts(String emailSubject, String emailBody) {
+        browser.waitForElementInvisible(By.xpath(String.format(
+                "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%1s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody)));
         return browser.findElement(By.xpath(String.format(
                 "//span[contains(text(), 'Draft')]/following::span[contains(text(), '%1s')]/following::span[contains(text(), '%2s')]", emailSubject, emailBody))).isDisplayed();
     }
-
 
 
     public GmailMainPage clickOnImageButton() {

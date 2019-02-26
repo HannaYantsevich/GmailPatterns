@@ -1,7 +1,5 @@
 package bo;
 
-import static utils.RandomString.getRandomString;
-
 public class User {
     private String login;
     private String password;
